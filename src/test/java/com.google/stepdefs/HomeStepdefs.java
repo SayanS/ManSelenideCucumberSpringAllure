@@ -2,15 +2,12 @@ package com.google.stepdefs;
 
 import com.google.pages.HomePage;
 import cucumber.api.java8.En;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.open;
 
-@ContextConfiguration("file:src/test/java/spring.xml")
-public class HomeStepdefs implements En {
+public class HomeStepdefs extends AbstractStep implements En {
 
     @Autowired
     private HomePage homePage;

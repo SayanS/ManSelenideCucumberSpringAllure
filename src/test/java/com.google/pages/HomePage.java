@@ -10,17 +10,16 @@ import static com.codeborne.selenide.Selenide.$$;
 
 @Component
 public class HomePage {
-
     private SelenideElement globalSearchField = $("input#lst-ib");
-    private String GLOBAL_SEARCH_DROP_DOWN_VALUES = "div.sbqs_c";
+    private String globalSearchDropDownValues = "div.sbqs_c";
 
     public void globalSearchFor(String text) {
         globalSearchField.val(text).pressEnter();
     }
 
     public void ensureThatGlobalSearchDropDownValuesContains(String expectedText) {
-        $$(GLOBAL_SEARCH_DROP_DOWN_VALUES).get(0).waitUntil(visible, 5000);
-        $$(GLOBAL_SEARCH_DROP_DOWN_VALUES).stream().forEach(element -> {
+        $$(globalSearchDropDownValues).get(0).waitUntil(visible, 5000);
+        $$(globalSearchDropDownValues).forEach(element -> {
             element.should(text(expectedText));
         });
     }

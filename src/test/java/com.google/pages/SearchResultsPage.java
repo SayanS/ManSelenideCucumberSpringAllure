@@ -8,13 +8,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 @Component
 public class SearchResultsPage {
-    By RESULTS_CONTAINERS_TITLES=By.xpath("//h3/a");
+    By resultsContainersTitles=By.xpath("//h3/a");
 
     public void ensureThatNumberOfSearchResults(Integer expectedNumber) {
-        $$(RESULTS_CONTAINERS_TITLES).shouldHaveSize(expectedNumber);
+        $$(resultsContainersTitles).shouldHaveSize(expectedNumber);
     }
 
     public void ensureThatResultsContains(String expectedText) {
-        $$(RESULTS_CONTAINERS_TITLES).stream().forEach(title-> title.should(text(expectedText)));
+        $$(resultsContainersTitles).forEach(title-> title.should(text(expectedText)));
     }
 }

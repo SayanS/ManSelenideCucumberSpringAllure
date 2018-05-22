@@ -3,10 +3,8 @@ package com.google.stepdefs;
 import com.google.pages.SearchResultsPage;
 import cucumber.api.java8.En;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 
-@ContextConfiguration("file:src/test/java/spring.xml")
-public class SearchStepdefs implements En {
+public class SearchStepdefs extends AbstractStep implements En {
 
     @Autowired
     SearchResultsPage searchResultsPage;

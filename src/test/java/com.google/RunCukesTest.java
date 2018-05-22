@@ -11,21 +11,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import static com.codeborne.selenide.Configuration.baseUrl;
-
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {"src/test/java/resources/features"},
                  glue = "com/google/stepdefs")
 public class RunCukesTest {
     @BeforeClass
     static public void setUp() {
-        Properties prop = new Properties();
-        InputStream input = null;
-        try {
-            input = new FileInputStream("./src/test/java/resources/config.properties");
-            prop.load(input);
-            baseUrl = prop.getProperty("myBaseUrl");
-            Configuration.browser = prop.getProperty("myBrowser");
+        Properties properties = new Properties();
+        String resourcesPath = "./src/test/java/resources/config.properties";
+        try (InputStream input = new FileInputStream(resourcesPath)) {
+            properties.load(input);
+            Configuration.browser = properties.getProperty("myBrowser");
+            Configuration.baseUrl = properties.getProperty("myBaseUrl");
         } catch (IOException e) {
             e.printStackTrace();
         }
