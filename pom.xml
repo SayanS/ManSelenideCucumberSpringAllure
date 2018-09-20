@@ -141,7 +141,7 @@
                 <version>${allure-maven}</version>
                 <configuration>
                     <reportVersion>2.0.1</reportVersion>
-                    <resultsDirectory>allure-results</resultsDirectory>
+                    <resultsDirectory>/home/user/IdeaProjects/EldoradoBDD/allure-results</resultsDirectory>
                     <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
                 </configuration>
             </plugin>
